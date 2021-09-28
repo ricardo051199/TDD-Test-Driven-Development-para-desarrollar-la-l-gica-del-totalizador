@@ -10,4 +10,13 @@ function mostrar_estado(estado){
     return "El codigo de estago es : " + estado;
 }
 
-export {mostrar_cantidad, mostrar_precio, mostrar_estado};
+function mostrar_precio_total(precio){
+    return "Precio total : " + precio + " $";
+}
+
+function calcular_precio_total(cantidad, precio, estado){
+    return cantidad * precio;
+}
+
+
+export {mostrar_cantidad, mostrar_precio, mostrar_estado, mostrar_precio_total, calcular_precio_total};

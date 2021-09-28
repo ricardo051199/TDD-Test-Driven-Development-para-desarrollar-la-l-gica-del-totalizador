@@ -1,4 +1,4 @@
-import {mostrar_cantidad, mostrar_precio, mostrar_estado} from "./App";
+import {mostrar_cantidad, mostrar_precio, mostrar_estado, mostrar_precio_total, calcular_precio_total} from "./App";
 
 describe("Sumar", () => {
   it("deberia mostrar la cantidad", () => {
@@ -16,5 +16,18 @@ describe("Sumar", () => {
   it("deberia mostrar el estado", () => {
     expect(mostrar_estado()).toEqual('El codigo de estago es : undefined');
     expect(mostrar_estado('texas')).toEqual('El codigo de estago es : texas');
+  });
+
+  it("deberia calcular el precio total", () => {
+    expect(calcular_precio_total()).toEqual(NaN);
+    expect(calcular_precio_total(2, 2)).toEqual(4);
+    expect(calcular_precio_total(0, 2)).toEqual(0);
+    expect(calcular_precio_total(2, 0)).toEqual(0);
+  });
+
+  it("deberia mostrar el precio total", () => {
+    expect(mostrar_precio_total()).toEqual('Precio total : undefined $');
+    expect(mostrar_precio_total(0)).toEqual('Precio total : 0 $');
+    expect(mostrar_precio_total(10)).toEqual('Precio total : 10 $');
   });
 });
