@@ -45,11 +45,35 @@ function calcular_descuento(precio_total){
     }
 }
 
-function calcular_precio_total(cantidad, precio){
+function calcular_impuesto(estado, precio){
+    if(estado == "UT"){
+        return 0.0665 * precio;
+    }
+
+    if(estado == "NV"){
+        return 0.08 * precio;
+    }
+
+    if(estado == "TX"){
+        return 0.0625 * precio;
+    }
+
+    if(estado == "AL"){
+        return 0.04 * precio;
+    }
+
+    if(estado == "CA"){
+        return 0.0825 * precio;
+    }
+}
+
+function calcular_precio_total(cantidad, precio, estado){
     var precio_cantidad = calcular_precio_cantidad(cantidad, precio);
     var descuento = calcular_descuento(precio_cantidad)
-    return precio_cantidad - descuento;
+    var precio_venta = precio_cantidad - descuento;
+    var impuesto = calcular_impuesto(estado, precio_venta)
+    return precio_venta + impuesto;
 }
 
 
-export {mostrar_cantidad, mostrar_precio, mostrar_estado, mostrar_precio_total, calcular_precio_total, calcular_descuento};
+export {mostrar_cantidad, mostrar_precio, mostrar_estado, mostrar_precio_total, calcular_precio_cantidad, calcular_descuento, calcular_impuesto, calcular_precio_total};
