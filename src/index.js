@@ -1,4 +1,4 @@
-import {mostrar_cantidad, mostrar_precio, mostrar_estado, mostrar_precio_total, calcular_precio_total} from "./App";
+import {mostrar_cantidad, mostrar_precio, mostrar_estado, mostrar_precio_total, calcular_precio_total, calcular_descuento} from "./App";
 
 const form = document.querySelector("#totalizador_de_venta-form");
 const cantidad = document.querySelector("#cantidad-input");
